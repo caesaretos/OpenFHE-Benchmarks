@@ -74,3 +74,49 @@ To run a specific benchmark, simply execute the corresponding executable from th
 ./bench-add-mul
 ./bench-boots
 ./bench-add-mul-unencrypted
+```
+
+## Sample Output
+
+
+**`bench-add-mul`:**
+
+============ Performance Profiling Results ============  
+| Operation                          | First Run (ms) | Avg (excl. first) (ms) | Memory Overhead (ms) |
+| ------------------------------------ | --------------- | ------------------------- | --------------------- |
+| MakeCKKSPackedPlaintext           | 17.832          | 17.850                    | -0.019                |
+| Encrypt                             | 61.898          | 73.336                    | -11.438               |
+| EvalAdd                             | 8.894           | 10.316                    | -1.421                |
+| EvalSub                             | 19.142          | 18.395                    | 0.748                 |
+| EvalMult (scalar)                  | 55.711          | 34.744                    | 20.967                |
+| EvalMult (ciphertext)             | 210.050         | 243.218                   | -33.168               |
+| EvalMultNoRelin                    | 129.145         | 95.695                    | 33.450                |
+| Relinearize                       | 210.327         | 188.345                   | 21.982                |
+| EvalRotate (1)                    | 226.849         | 201.260                   | 25.589                |
+| EvalRotate (-2)                   | 153.061         | 195.642                   | -42.581               |
+| Decrypt                            | 167.451         | 143.760                   | 23.691                |
+
+<br>
+
+**`bench-boots`:**
+
+Bootstrapping is slow, no need for the first run time. Ignore it.
+
+============ Performance Profiling Results ============
+| Operation           | First Run (ms) | Avg (excl. first) (ms) | Memory Overhead (ms) |
+| -------------------- | --------------- | ------------------------- | --------------------- |
+| EvalBootstrap       | 0.000          | 45426.663                | -45426.663           |
+
+<br>
+
+**`bench-add-mul-unencrypted`:**
+
+============ Performance Profiling Results ============  
+| Operation         | First Run (ms) | Avg (excl. first) (ms) | Memory Overhead (ms) |
+| ----------------- | --------------- | ------------------------- | --------------------- |
+| Add UnEnc         | 0.103          | 0.013                      | 0.090                |
+| Sub UnEnc         | 0.057          | 0.011                      | 0.045                |
+| Mult (scalar)     | 0.050          | 0.009                      | 0.040                |
+| Mult UnEnc        | 0.058          | 0.012                      | 0.046                |
+
+<br>
