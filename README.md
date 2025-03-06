@@ -62,7 +62,7 @@ To build the benchmarks, follow these steps:
 
 The build process will produce the following executable targets within the `build` directory:
 
-* **`bench-add-mul`:** This benchmark evaluates the performance of basic CKKS homomorphic addition and multiplication operations. It provides insights into the efficiency of performing arithmetic on encrypted data.
+* **`bench-add-mul`:** This benchmark evaluates the performance of basic CKKS homomorphic addition and multiplication operations. It provides insights into the efficiency of performing arithmetic on encrypted data. To simulate a realistic application environment, the multiplicative depth is set to 10. This value represents a reasonable average for the complexity of computations in typical scenarios. Since operational latency is directly influenced by multiplicative depth, this choice ensures that the benchmark results reflect practical usage patterns.
 * **`bench-boots`:** This benchmark measures the execution time of the CKKS bootstrapping procedure. Bootstrapping is essential for maintaining the noise of encrypted computations and enabling complex operations.
 * **`bench-add-mul-unencrypted`:** This benchmark performs equivalent vector addition and multiplication operations on unencrypted data. It serves as a baseline for comparing the performance of homomorphic operations with their plaintext counterparts. Note no bootstrapping is required in unencerypted computation.
 
