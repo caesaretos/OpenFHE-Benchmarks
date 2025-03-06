@@ -76,7 +76,7 @@ To run a specific benchmark, simply execute the corresponding executable from th
 ./bench-add-mul-unencrypted
 ```
 
-## Sample Output
+## Sample Output - Single-Thread Build
 
 
 **`bench-add-mul`:**
